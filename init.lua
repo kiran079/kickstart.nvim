@@ -429,7 +429,13 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader><leader>', builtin.buffers, { desc = '[ ] Find existing buffers' })
 
       vim.keymap.set('n', '<leader>pv', vim.cmd.Ex, { desc = 'Open directory of current file' })
-
+      require('telescope').setup {
+        defaults = {
+          file_ignore_patterns = {
+            'node_modules',
+          },
+        },
+      }
       -- Slightly advanced example of overriding default behavior and theme
       vim.keymap.set('n', '<leader>/', function()
         -- You can pass additional configuration to Telescope to change the theme, layout, etc.
